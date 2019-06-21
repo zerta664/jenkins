@@ -31,7 +31,7 @@ pipeline {
           steps {
             parallel(
               "Junit": {
-                 junit 'target/surefire-reports/*.xml'
+                 junit 'core/target/surefire-reports/*.xml'
               },
                "Archive": {
                   archiveArtifacts(artifacts: '**/target/*.jar', onlyIfSuccessful: true, fingerprint: true)
