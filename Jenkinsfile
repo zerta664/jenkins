@@ -4,8 +4,13 @@ pipeline {
   
     stages {
       stage('Clone sources') {
-        git url: 'https://github.com/zivkashtan/course.git'
-      }
+        steps {
+            git branch: 'master',
+                url: 'https://github.com/zivkashtan/course.git'
+
+            sh "ls -lat"
+        }
+    }
     
    // stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
