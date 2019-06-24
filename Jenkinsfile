@@ -12,7 +12,7 @@ pipeline {
 
             sh "ls -lat"
         }
-    }
+     }
     
    // stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
@@ -40,5 +40,10 @@ pipeline {
            )
          }
       }
-    }  
+      stage('Publish') {
+        steps {
+          nexusPublisher nexusInstanceId: 'LocalHexus', nexusRepositoryId: 'company-project', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'web/target/time-tracker-web-0.3.1.war']], mavenCoordinate: [artifactId: 'time-tracker-web-war', groupId: 'tracker', packaging: 'war', version: '0.3.1']]]
+        }
+     }
+  }
 }
