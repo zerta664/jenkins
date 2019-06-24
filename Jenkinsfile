@@ -42,7 +42,7 @@ pipeline {
       }
       stage('Publish') {
         steps {
-          nexusPublisher nexusInstanceId: 'LocalHexus', nexusRepositoryId: 'company-project', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'web/target/time-tracker-web-0.3.1.war']], mavenCoordinate: [artifactId: 'time-tracker-web-war', groupId: 'public', packaging: 'war', version: '0.3.1']]]
+          nexusPublisher nexusInstanceId: 'LocalHexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'web/target/time-tracker-web-0.3.1.war']], mavenCoordinate: [artifactId: 'time-tracker-web-war', groupId: 'public', packaging: 'war', version: '0.3.1']]]
         }
      }
   }
